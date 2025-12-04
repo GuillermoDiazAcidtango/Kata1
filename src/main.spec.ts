@@ -10,4 +10,17 @@ describe("Serve coffe test", () => {
     const result = serveCoffe(customerOrder)
     expect(result).toBe("C::")
   })
+
+
+  it("serve tea with 2 sugar", () => {
+    const customerOrder: CustomerOrder = {
+      drink: "Tea",
+      sugar: 2
+    }
+
+    const result = serveCoffe(customerOrder)
+    expect(result).toBe("T:2:0")
+
+  })
+
 })
