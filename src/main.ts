@@ -1,20 +1,25 @@
 export function serveCoffe(order: CustomerOrder): string {
   let serveMessage = ""
 
-  serveMessage += drinkType
+  switch (order.drink) {
+    case 'Coffee':
+      serveMessage += 'C'
+      break
+    case 'Tea':
+      serveMessage += 'T'
+      break
+    case 'Chocolate':
+      serveMessage += 'H'
+      break
+  }
 
-  return ""
+  serveMessage += order.sugar === 0 ? '::' : `:${order.sugar}:`
+
+
+  return serveMessage
 }
 
 export type CustomerOrder = {
   drink: string,
   sugar: number
 }
-
-const drinkType = {
-  C: 'Coffee',
-  T: 'Tea',
-  H: 'Chocolate'
-} as const
-
-type DrinkType = (typeof drinkType)[keyof typeof drinkType]
