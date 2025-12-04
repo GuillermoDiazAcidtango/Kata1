@@ -13,7 +13,7 @@ export function serveCoffe(order: CustomerOrder): string {
       break
   }
 
-  serveMessage += order.sugar === 0 ? '::' : `:${order.sugar}:`
+  serveMessage += order.sugar === 0 ? '::' : `:${order.sugar}:0`
 
 
   return serveMessage
