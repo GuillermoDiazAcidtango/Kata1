@@ -2,13 +2,13 @@ export function serveCoffe(order: CustomerOrder): string {
   let serveMessage = ""
 
   switch (order.drink) {
-    case 'Coffee':
+    case drinkType.Coffe:
       serveMessage += 'C'
       break
-    case 'Tea':
+    case drinkType.Tea:
       serveMessage += 'T'
       break
-    case 'Chocolate':
+    case drinkType.Chocolate:
       serveMessage += 'H'
       break
   }
@@ -19,7 +19,15 @@ export function serveCoffe(order: CustomerOrder): string {
   return serveMessage
 }
 
+export const drinkType = {
+  Coffe: 'C',
+  Tea: 'T',
+  Chocolate: 'H'
+} as const
+
+export type DrinkType = (typeof drinkType)[keyof typeof drinkType]
+
 export type CustomerOrder = {
-  drink: string,
+  drink: DrinkType,
   sugar: number
 }
