@@ -1,10 +1,13 @@
-import { describe, it, expect } from "vitest"
-import { myFunction } from "./main.js"
+import { describe, expect, it } from "vitest"
+import { CustomerOrder, serveCoffe } from "./main.js"
 
-describe("Default test", () => {
-  it("should work", () => {
-    const result = myFunction()
-
-    expect(result).toBe(true)
+describe("Serve coffe test", () => {
+  it("serve coffe and no sugar", () => {
+    const customerOrder: CustomerOrder = {
+      drink: "coffee",
+      sugar: 0
+    }
+    const result = serveCoffe(customerOrder)
+    expect(result).toBe("C::")
   })
 })
